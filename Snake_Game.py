@@ -67,7 +67,8 @@ def next_turn(snake, food):
         global score
         
         score += 1
-        speed -= 3 # snake gets faster when it eats snake
+        if speed >50:
+            speed -= 3 # snake gets faster when it eats snake
 
         label.config(text="Score:{}".format(score))
 
