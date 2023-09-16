@@ -3,13 +3,12 @@ import random
 
 GAME_WIDTH = 700
 GAME_HEIGHT = 700
-SPEED = 150
 SPACE_SIZE = 50
 BODY_PARTS = 3
 SNAKE_COLOR = "#0000FF"
 FOOD_COLOR = "#FF0000"
 BACKGROUND_COLOR = "#000000"
-
+speed = 150
 
 
 class Snake:
@@ -44,7 +43,7 @@ def next_turn(snake, food):
     to food and displays at SPEED speed. When head encounters with
     a border program terminates with game over func.
     """
-    global SPEED
+    global speed
     global direction
     x, y = snake.coordinates[0]
 
@@ -68,7 +67,7 @@ def next_turn(snake, food):
         global score
         
         score += 1
-        SPEED -= 3 # snake gets faster when it eats snake
+        speed -= 3 # snake gets faster when it eats snake
 
         label.config(text="Score:{}".format(score))
 
@@ -87,7 +86,7 @@ def next_turn(snake, food):
     if check_collisions(snake):
         game_over()
     else:
-        window.after(SPEED, next_turn, snake, food)
+        window.after(speed, next_turn, snake, food)
 
 
 def change_direction(new_direction):
